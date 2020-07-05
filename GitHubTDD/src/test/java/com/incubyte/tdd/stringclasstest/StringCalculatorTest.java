@@ -97,4 +97,19 @@ class StringCalculatorTest {
 	void sumWithMultipleDelimitersLengthLongerThanOne() {
 		assertEquals(6, StringCalculator.Add("//[**][%%]\n1**2%%3"));
 	}
+
+	@Test
+	void sumWithMetaCharacterTest1() {
+		assertEquals(10, StringCalculator.Add("//$\n1$2$3$4"));
+	}
+
+	@Test
+	void sumWithMetaCharacterTest2() {
+		assertEquals(15, StringCalculator.Add("//[*][$$][+++]\n1*2$$3+++4*5"));
+	}
+
+	@Test
+	void sumWithMetaCharacterTest3() {
+		assertEquals(1033, StringCalculator.Add("//[*][$$][+++][....]\n1*2$$3+++4*5....6....1000*1005+++10$$2"));
+	}
 }
