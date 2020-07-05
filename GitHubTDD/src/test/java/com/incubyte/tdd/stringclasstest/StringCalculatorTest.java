@@ -32,4 +32,14 @@ class StringCalculatorTest {
 	void sumWithNewLinesAndCommasAsDelimiters() {
 		assertEquals(6, StringCalculator.Add("1\n2,3"));
 	}
+
+	@Test
+	void sumWithCustomDelimiters() {
+		assertEquals(3, StringCalculator.Add("//;\n1;2"));
+	}
+
+	@Test
+	void sumWithSecialCharCustomDelimiters() {
+		assertEquals(6, StringCalculator.Add("// \n1 2 3"));
+	}
 }
