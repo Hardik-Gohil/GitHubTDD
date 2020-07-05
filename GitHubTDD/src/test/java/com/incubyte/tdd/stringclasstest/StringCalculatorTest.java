@@ -1,6 +1,7 @@
 package com.incubyte.tdd.stringclasstest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Test;
 
@@ -41,5 +42,15 @@ class StringCalculatorTest {
 	@Test
 	void sumWithSecialCharCustomDelimiters() {
 		assertEquals(6, StringCalculator.Add("// \n1 2 3"));
+	}
+
+	@Test
+	void sumWithNegativeNumbers() {
+		try {
+			StringCalculator.Add("-1,2");
+			fail("Exception Expected");
+		} catch (Exception e) {
+			assertEquals("negatives not allowed:[-1]", e.getMessage());
+		}
 	}
 }

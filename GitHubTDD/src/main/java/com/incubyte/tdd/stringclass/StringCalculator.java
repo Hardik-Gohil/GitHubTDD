@@ -1,6 +1,9 @@
 package com.incubyte.tdd.stringclass;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.util.StringUtils;
 
@@ -18,6 +21,11 @@ public class StringCalculator {
 			delimiter = delimiterAndNumber[0].replaceFirst("//", "");
 			numbers = delimiterAndNumber[1];
  		} 
-		return Arrays.stream(numbers.split(delimiter)).mapToInt(Integer::valueOf).sum();
+		List<Integer> intNumbers = Arrays.stream(numbers.split(delimiter)).map(Integer::valueOf).collect(Collectors.toCollection(ArrayList::new));
+		List<Integer> negativeNumbers = intNumbers.stream().filter(num -> num < 0).collect(Collectors.toCollection(ArrayList::new));
+		if (negativeNumbers.size() > 0) {
+			throw new RuntimeException("negatives not allowed:" + negativeNumbers.toString());
+		}
+		return intNumbers.stream().mapToInt(Integer::intValue).sum();
 	}
 }
