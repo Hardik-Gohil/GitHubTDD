@@ -8,8 +8,15 @@ import java.util.stream.Collectors;
 import org.springframework.util.StringUtils;
 
 public class StringCalculator {
-
+	
+	private static int addInvokedCount = 0;
+	
+	public static int GetCalledCount() {
+		return addInvokedCount;
+	}
+	
 	public static int Add(String numbers) {
+		addInvokedCount++;
 		if (!StringUtils.hasLength(numbers)) {
 			return 0;
 		} else if (numbers.length() == 1) {
