@@ -92,4 +92,9 @@ class StringCalculatorTest {
 	void sumWithMultipleDelimitersDelimiters() {
 		assertEquals(6, StringCalculator.Add("//[*][%]\n1*2%3"));
 	}
+	
+	@Test
+	void sumWithMultipleDelimitersLengthLongerThanOne() {
+		assertEquals(6, StringCalculator.Add("//[**][%%]\n1**2%%3"));
+	}
 }
