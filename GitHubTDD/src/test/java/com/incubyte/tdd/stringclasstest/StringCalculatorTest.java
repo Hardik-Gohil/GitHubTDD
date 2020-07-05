@@ -9,14 +9,14 @@ import org.junit.jupiter.api.Test;
 import com.incubyte.tdd.stringclass.StringCalculator;
 
 class StringCalculatorTest {
-	
+
 	private static int addInvokedCountTest = 0;
 
 	@BeforeEach
 	private void invokingAdd() {
 		addInvokedCountTest++;
 	}
-	
+
 	@Test
 	void sumWithEmptyNumbers() {
 		assertEquals(0, StringCalculator.Add(""));
@@ -71,10 +71,15 @@ class StringCalculatorTest {
 			assertEquals("negatives not allowed:[-2, -6, -8]", e.getMessage());
 		}
 	}
-	
+
 	@Test
-	void iinvocationCountOfAddTest() {
+	void invocationCountOfAddTest() {
 		addInvokedCountTest--;
 		assertEquals(addInvokedCountTest, StringCalculator.GetCalledCount());
+	}
+
+	@Test
+	void sumWithNumberBiggerThanThousand() {
+		assertEquals(2000, StringCalculator.Add("1000,1001,999,1"));
 	}
 }

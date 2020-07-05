@@ -33,6 +33,6 @@ public class StringCalculator {
 		if (negativeNumbers.size() > 0) {
 			throw new RuntimeException("negatives not allowed:" + negativeNumbers.toString());
 		}
-		return intNumbers.stream().mapToInt(Integer::intValue).sum();
+		return intNumbers.stream().mapToInt(Integer::intValue).filter(num -> num <= 1000).sum();
 	}
 }
