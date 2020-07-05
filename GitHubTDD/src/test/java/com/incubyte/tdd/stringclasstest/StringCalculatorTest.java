@@ -23,4 +23,9 @@ class StringCalculatorTest {
 		assertEquals(3, StringCalculator.Add("1,2"));
 	}
 
+	@Test
+	void sumWithUnknownAmountOfNumbers() {
+		assertEquals(28, StringCalculator.Add("1,2,3,4,5,6,7"));
+	}
+
 }

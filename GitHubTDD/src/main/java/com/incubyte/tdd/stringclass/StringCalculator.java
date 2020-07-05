@@ -1,5 +1,7 @@
 package com.incubyte.tdd.stringclass;
 
+import java.util.Arrays;
+
 import org.springframework.util.StringUtils;
 
 public class StringCalculator {
@@ -9,9 +11,7 @@ public class StringCalculator {
 			return 0;
 		} else if (numbers.length() == 1) {
 			return Integer.parseInt(numbers);
-		} else {
-			String[] number = numbers.split(",");
-			return Integer.parseInt(number[0]) + Integer.parseInt(number[1]);
 		}
+		return Arrays.stream(numbers.split(",")).mapToInt(Integer::valueOf).sum();
 	}
 }
