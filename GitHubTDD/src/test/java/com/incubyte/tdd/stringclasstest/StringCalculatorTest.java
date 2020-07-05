@@ -82,4 +82,9 @@ class StringCalculatorTest {
 	void sumWithNumberBiggerThanThousand() {
 		assertEquals(2000, StringCalculator.Add("1000,1001,999,1"));
 	}
+
+	@Test
+	void sumWithAnyLengthOfDelimiters() {
+		assertEquals(6, StringCalculator.Add("//[***]\n1***2***3"));
+	}
 }
