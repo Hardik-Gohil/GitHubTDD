@@ -28,4 +28,8 @@ class StringCalculatorTest {
 		assertEquals(28, StringCalculator.Add("1,2,3,4,5,6,7"));
 	}
 
+	@Test
+	void sumWithNewLinesAndCommasAsDelimiters() {
+		assertEquals(6, StringCalculator.Add("1\n2,3"));
+	}
 }

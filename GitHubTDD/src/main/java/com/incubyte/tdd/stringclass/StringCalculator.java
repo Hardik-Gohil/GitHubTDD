@@ -12,6 +12,6 @@ public class StringCalculator {
 		} else if (numbers.length() == 1) {
 			return Integer.parseInt(numbers);
 		}
-		return Arrays.stream(numbers.split(",")).mapToInt(Integer::valueOf).sum();
+		return Arrays.stream(numbers.split(",|\n")).mapToInt(Integer::valueOf).sum();
 	}
 }
